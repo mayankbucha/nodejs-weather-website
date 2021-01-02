@@ -11,7 +11,7 @@ const forecast = ({latitude:lat, longitude:long}, callback) => {
         } 
         else {
             callback(undefined, 
-                body.daily.data[0].summary + ` It is currently ${body.currently.temperature} degrees out. There is a ${body.currently.precipProbability}% chance of rain.`,
+                body.daily.data[0].summary + ` It is currently ${body.currently.temperature} degrees out with maximum of ${body.daily.data[0].temperatureHigh} degrees and minimum of ${body.daily.data[0].temperatureLow} degrees. There is a ${body.currently.precipProbability}% chance of rain. Timezone${body.timezone}`,
             )
         }
     })

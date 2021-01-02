@@ -24,14 +24,14 @@ app.use(express.static(publicDirectoryPath))
 app.get('', (req, res) => {
     res.render('index', {
         title: 'Weather',
-        name: 'Mayank',
+        name: 'Mayank Bucha',
     })
 })
 
 app.get('/about', (req, res) => {
     res.render('about', {
         title: 'About Me',
-        name: 'Mayank'
+        name: 'Mayank Bucha'
     })
 })
 
@@ -39,7 +39,7 @@ app.get('/help', (req, res) => {
     res.render('help', {
         helpText: 'This site is used to provide weather info',
         title: 'Help',
-        name: 'Mayank'
+        name: 'Mayank Bucha'
     })
 })
 
@@ -63,10 +63,12 @@ app.get('/weather', (req, res) => {
                     error,
                 })
             }
+            const timeZone = forecastData.split('Timezone')
             return res.send({
-                forecast: forecastData,
+                forecast: timeZone[0],
                 location: data.location,
                 address: req.query.address,
+                timezone: timeZone[1],
             })
         })
     })
